@@ -86,15 +86,20 @@
 
 2.3.1 상품 엔티티 설계하기
 
-    entity 패키지 생성
-    entity/item.javs 생성
-    constant 패키지 생성 (enum 타입 모음)
-    constant/ItemSellStatus.java 생성
-    
-    ![image](https://user-images.githubusercontent.com/126080146/226780951-7299f51d-f597-43da-bf34-f78d665b99fe.png)
-    ![image](https://user-images.githubusercontent.com/126080146/226781035-36b8bee0-8fbe-4928-a3a9-62550b3bd4b9.png)
+    com.shop.entity 패키지 생성
+    com.shop.entity.item.javs 생성
+    com.shop.constant 패키지 생성 (enum 타입 모음)
+    com.shop.constant.ItemSellStatus.java 생성
 
-    
+  ![image](https://user-images.githubusercontent.com/126080146/226781287-d979cbdb-782d-4c54-addf-6cc3f716d753.png)
+
+  ![image](https://user-images.githubusercontent.com/126080146/226781405-1c085ffb-dfc2-493e-8ff0-8020c26642a1.png)
+
+  ![image](https://user-images.githubusercontent.com/126080146/226781450-16a00173-cf84-406a-b75a-d1ccf64c88aa.png)
+
+### 2.4 Repository 설계하기
+
+
     
 
     
