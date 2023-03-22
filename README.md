@@ -72,4 +72,20 @@
 
 ### 2.2 쇼핑몰 프로젝트 생성하기
 
+2.2.1 프로젝트 생성
+
+    https://start.spring.io/ 접속하여 프로젝트 생성 (패키지 이름 com.shop)
+    Lombok, Thymeleaf, Spring Data JPA, Spring Web, MySQL Driver, H2 Database 의존성 추가
+
+2.2.2 application.properties 설정하기
+
+    application.properties 주석 정리
+    데이터베이스 초기화 전략 - DDL AUTH 옵션
+    
+### 2.3 상품 엔티티 설계하기
+
+
+    
+
+
 
