@@ -99,6 +99,12 @@
 
 ### 2.4 Repository 설계하기
 
+    com.shop.repository 패키지 생성 후 ItemRepository 인터페이스 생성
+    테스트 환경 시 h2 데이터베이스를 사용하도록 resources 아래에 application-test.properties 파일 생성
+    ItemRepository 인터페이스에서 Test 생성 (ItemRepsotiroyTest)
+    
+    
+    
 
     
 
