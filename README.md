@@ -102,7 +102,35 @@
     com.shop.repository 패키지 생성 후 ItemRepository 인터페이스 생성
     테스트 환경 시 h2 데이터베이스를 사용하도록 resources 아래에 application-test.properties 파일 생성
     ItemRepository 인터페이스에서 Test 생성 (ItemRepsotiroyTest)
+
+### 2.5 쿼리 메소드
+
+  ![image](https://user-images.githubusercontent.com/126080146/227088687-9f0394f6-d894-4988-b012-1fe49648bbd3.png)
+
+    - 상품의 이름을 이용하여 데이터를 조회하는 예제
+        ItemRepository 인터페이스에 findByItemNm 메소드 추가
+        ItemRepositoryTest 에 Test 코드 작성
+        
+    - OR 조건 처리 예제
+        ItemRepository 인터페이스에 findByItemNmOrItemDetail 메소드 추가
+        ItemRepositoryTest 에 Test 코드 작성
     
+    - LessThan 조건 처리 예제
+        ItemRepository 인터페이스에 findByPriceLessThan 메소드 추가
+        ItemRepositoryTest 에 Test 코드 작성
+        
+    - OrderBy 정렬 처리 예제
+        ItemRepository 인터페이스에 findByPriceLessThanOrderByPriceDesc 메소드 추가
+        ItemRepositoryTest 에 Test 코드 작성
+
+
+        
+    
+    
+    
+    
+    
+
     
     
 
