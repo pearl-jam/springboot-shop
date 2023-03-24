@@ -132,8 +132,36 @@
         ItemRepository 인터페이스 findByItemDetail 메소드 추가
         ItemRepositoryTest 에 Test 코드 작성
         
+### 2.7 Spring DATA JPA Querydsl
 
-        
+    - 작성 쿼리 중 오타가 들어갈 경우 애플리케이션을 실행하기 전까지 오류를 인지하지 못하며, 로딩 시점에 파싱 후 에러를 잡도록 도음을 주는 것이 Querydsl
+    - Querydsl 은 JPQL 을 코드로 작성할 수 있도록 도와주는 빌더 API
+    
+    [Querydsl 장점]
+    
+    * 고정된 SQL 문이 아닌 조건에 맞게 동적으로 쿼리 생성
+    * 비슷한 쿼리를 재사용할 수 있으며 제약 조건 조립 및 가독성을 향상
+    * 문자열이 아닌 자바 소스코드로 작성하기 때문에 컴파일 시점에 오류를 발견
+    * IDE 의 도움을 받아서 자동 완성 기능을 이용할 수 있기 때문에 생산성 향상
+    
+    [기본셋팅]
+    * 사용을 위해 querydsl-jpa, querydsl-apt 의존성 추가
+    * Maven -> Reload All Maven Projects
+    * maven compile 더블 클릭 > target/generated-sources 폴더에 QItem 클래스 생성
+    
+    - JPAQueryFactory 이용한 상품 조회 예제
+      ItemRepositoryTest 에 Test 코드 작성
+
+  ![image](https://user-images.githubusercontent.com/126080146/227441789-fc22fec3-793e-4a8b-a820-30d393f54c74.png)
+
+      ItemRepository 인터페이스에 QueryDslPredicateExecutor 인터페이스 상속
+      
+  ![image](https://user-images.githubusercontent.com/126080146/227442854-4d0cd8fe-71dd-43d2-9d65-ffc9ac518071.png)
+
+      
+    
+    
+    
     
     
     
