@@ -123,6 +123,15 @@
         ItemRepository 인터페이스에 findByPriceLessThanOrderByPriceDesc 메소드 추가
         ItemRepositoryTest 에 Test 코드 작성
 
+### 2.6 Spring DATA JPA @Query 어노테이션
+
+    - @Query 어노테이션을 이용하면 SQL과 유사한 JPQL 이라는 객체지향 쿼리 언어를 통해 복잡한 쿼리도 처리 가능
+    - JPQL 은 엔티티 객체를 대상으로 쿼리를 수행하는 객체지향 쿼리
+    - SQL 을 추상화해서 사용하기 때문에 특정 데이터베이스 SQL 에 의존하지 않아 데이터베이스가 변경되어도 애플리케이션 영향을 받지 않
+    - 검색 예제
+        ItemRepository 인터페이스 findByItemDetail 메소드 추가
+        ItemRepositoryTest 에 Test 코드 작성
+        
 
         
     
