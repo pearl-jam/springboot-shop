@@ -159,6 +159,19 @@
   ![image](https://user-images.githubusercontent.com/126080146/227442854-4d0cd8fe-71dd-43d2-9d65-ffc9ac518071.png)
 
       
+## 3장 Thymeleaf 학습하기
+
+### 3.1 Thymeleaf 소개
+
+    - 서버 사이트 템플릿 엔진으로는 Thymeleaf (스프링 권장), Freemarker, Groovy, Mustache 등이 존재
+    - Thymeleaf 의 가장 큰 장점은 'natural templates'
+    - Thymeleaf 의 확장자명은 html 이며, 문법은 html 태그 안쪽에 속성으로 사용
+    
+    com.shop 패키지 아래 controller 패키지 생성 후 Thymeleaf 예제용 컨트롤러 클래 ThymeleafExController 생성
+    resources/templates 아래 thymeleafEx 폴더 생성 후 해당 폴더에 thymeleafEx01.html 파일 생성 (th:text="${data}")
+    
+
+    
     
     
     
