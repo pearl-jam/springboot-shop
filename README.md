@@ -170,6 +170,38 @@
     com.shop 패키지 아래 controller 패키지 생성 후 Thymeleaf 예제용 컨트롤러 클래 ThymeleafExController 생성
     resources/templates 아래 thymeleafEx 폴더 생성 후 해당 폴더에 thymeleafEx01.html 파일 생성 (th:text="${data}")
     
+### 3.2 Spring Boot Devtools
+
+    - Spring Bot Devtools 는 애플리케이션 개발 시 유용한 기능들을 제공하는 모듈이며 개발 생산성 향상에 도움
+    
+    [Spring Boot Devtools 에서 제공하는 대표적인 기능]
+    
+    * Automatic Restart: classpath 에 있는 파일이 변경될 때마다 애플리케이션을 자동으로 재시작
+    * Live Reload: 정적 자원(html, css, js) 수정 시 새로 고침 없이 바로 적용
+    * Property Defaults: Thymeleaf 는 기본적으로 성능을 향상시키기 위해서 캐싱 기능을 사용하지만 개발 시 cache 기본값을 false 로 설정 가능
+    
+    - spring-boot-devtools 의존성 추가
+    
+3.2.1 Automatic Restart 적용하기
+
+    - 설정법이 바뀜
+    
+    https://velog.io/@jodawooooon/IntelliJ-%EC%9E%90%EB%8F%99-%EB%B9%8C%EB%93%9C-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-Registry%EC%97%90-compiler.automake.allow.when.app.running%EC%9D%B4-%EC%97%86%EB%8A%94-%EA%B2%BD%EC%9A%B0
+    
+3.2.2 Live Reload 적용하기
+
+    - application.properties Live Reload 적용 설정 추가
+        spring.devtools.livereload.enabled=true
+    - 구글 크롬 웹 스토어에서 LiveReload 설치
+
+3.2.3 Property Defaults 적용하기
+
+    - 운영환경과 개발 환경의 application.properties 분리 후 운영환경에서는 캐싱 기능을 사용하고, 개발환경에서는 캐싱 기능을 꺼두는 방법으로 관리
+      spring.thymeleaf.cache = false
+
+
+
+
 
     
     
