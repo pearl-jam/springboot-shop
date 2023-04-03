@@ -6,6 +6,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link th:href="@{/css/layout1.css}" rel="stylesheet">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <th:block layout:fragment="script"></th:block>
     <th:block layout:fragment="css"></th:block>
 </head>
@@ -13,7 +22,7 @@
     <!-- th:replace 속성은 해당 속성이 선언된 html 태그를 다른 html 파일로 치환하는 것으로 이해, fragments 폴더 아래의 header.html 파일의 "th:fragment=header" 영역을 가지고 옴 -->
     <div th:replace="fragments/header::header"></div>
     <!-- layout 에서 변경되는 영역을 fragment 로 설정 -->
-    <div layout:fragment="content"></div>
+    <div layout:fragment="content" class="content"></div>
     <!-- header 영역과 마찬가지로 fragments 폴더 아래의 footer.html 파일의 "th:fragment=footer" 영역을 가지고 옴 -->
     <div th:replace="fragments/footer::footer"></div>
 </body>

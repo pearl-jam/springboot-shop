@@ -230,6 +230,13 @@
     - content
         resources/templates/thymeleafEx07.html - layout:fragment="content"
 
+### 3.5 부트스트랩으로 header, footer 영역 수정하기
+
+3.5.1 Bootstrap CDN 추가하기
+
+3.5.2 Bootstrap Navbar Component 활용하기
+
+
 
 
 
