@@ -199,6 +199,18 @@
     - 운영환경과 개발 환경의 application.properties 분리 후 운영환경에서는 캐싱 기능을 사용하고, 개발환경에서는 캐싱 기능을 꺼두는 방법으로 관리
       spring.thymeleaf.cache = false
 
+### 3.3 Thymeleaf 예제 진행하기
+
+3.3.1 th:text 예제
+
+3.3.2 th:each 예제
+
+3.3.3 th:if, th:unless 예제
+
+3.3.4 th:switch, th:case 예제
+
+3.3.5 th:href 예제
+
 
 
 
