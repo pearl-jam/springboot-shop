@@ -211,6 +211,26 @@
 
 3.3.5 th:href 예제
 
+### 3.4 Thymeleaf 페이지 레이아웃
+
+3.4.1 Thymeleaf Layout Dialect dependency 추가하기
+
+    - header
+        resources/templates/fragments/header.html - th:fragment="header"
+
+    - footer
+        resources/templates/fragments/footer.html - th:fragment="footer"
+
+    - layout
+        resources/template/layouts/layout1.html
+        th:replace="fragments/header::header"
+        layout:fragments="conetnt"
+        th:replace="fragments/footer::footer"
+        
+    - content
+        resources/templates/thymeleafEx07.html - layout:fragment="content"
+
+
 
 
 

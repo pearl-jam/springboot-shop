@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- layout 기능을 사용하기 위해서 html 태그에 layout 네임스페이스 추가 -->
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <th:block layout:fragment="script"></th:block>
+    <th:block layout:fragment="css"></th:block>
+</head>
+<body>
+    <!-- th:replace 속성은 해당 속성이 선언된 html 태그를 다른 html 파일로 치환하는 것으로 이해, fragments 폴더 아래의 header.html 파일의 "th:fragment=header" 영역을 가지고 옴 -->
+    <div th:replace="fragments/header::header"></div>
+    <!-- layout 에서 변경되는 영역을 fragment 로 설정 -->
+    <div layout:fragment="content"></div>
+    <!-- header 영역과 마찬가지로 fragments 폴더 아래의 footer.html 파일의 "th:fragment=footer" 영역을 가지고 옴 -->
+    <div th:replace="fragments/footer::footer"></div>
+</body>
+</html>ㅏ
