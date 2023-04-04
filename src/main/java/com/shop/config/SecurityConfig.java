@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 // WebSecurityConfigurerAdapter 를 상속받는 클래스에 @EnableWebSecurity 어노테이션을 선언하면 SpringSecurityFilterChain 이 자동으로 포함
@@ -24,6 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 이를 해결하기 위해 BCryptPasswordEncoder 의 해시 함수를 이용하여 비밀번호를 암호화하여 저장
     @Bean
     public PasswordEncoder passwordEncoder() {
-
+        return new BCryptPasswordEncoder();
     }
 }

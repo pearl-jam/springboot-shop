@@ -265,6 +265,11 @@
 
 4.2.2 스프링 시큐리티 설정하기
 
+com.shop.config.SecurityConfig.javas 생성
+
+### 4.3 회원 가입 기능 구현하기
+
+
 
 
 
