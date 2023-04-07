@@ -269,6 +269,46 @@ com.shop.config.SecurityConfig.javas 생성
 
 ### 4.3 회원 가입 기능 구현하기
 
+com.shop.constant.Role.java
+
+- 각각의 멤버는 일반 유저인지, 아니면 관리자인지 구분할 수 있는 역할 정의
+
+com.shop.dto.MemberFormDto.java
+
+- 회원 가입 화면으로부터 넘어오는 가입정보를 담을 dto 생성
+- (테스트 완료 후) spring-boot-starter-validation 추가 후 유효성을 검증할 클래스의 필드에 어노테이션 선언
+
+com.shop.entity.Member.js
+
+- 회원 정보를 저장하는 Member 엔티티 생성 (이름, 이메일, 비밀번호, 주소, 역할)
+
+com.shop.repository.MemberRepository.java
+
+- Member 엔티티를 데이터베이스에 저장할 수 있도록 MemberRepository 생성
+
+com.shop.service.MemberServiceTest.java
+
+- 회원가입 기능이 정상적으로 동작하는지 테스트 코드를 작성하여 검증
+
+[테스트 완료 후]
+
+com.shop.controller.MemberController.java
+
+- 회원 가입 로직을 완성했으므로, 회원 가입을 위한 페이지 생성. Controller 패키지 아래 MemberController 클래스 생성
+- Post 값에 대한 검증 추가, 가입 후 main 페이지로 이동 처리
+- spring-boot-starter-validation 추가
+
+resource/templates/member/memberForm.html
+
+- 회원 가입 UI 페이지
+
+resource/templates/main.html
+
+- 메인 페이지
+
+[UI 완료 후 DB에 저장값 확인]
+
+
 
 
 
