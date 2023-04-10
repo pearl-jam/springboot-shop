@@ -324,6 +324,34 @@ resource/templates/main.html
 
 기존에 만들었던 MemberService 가 UserDetailService 구현
 
+com.shop.service.MemberService.java
+
+- UserDetailService 구현
+- loadUserByUsername 메소드 작성
+
+com.shop.config.SecurityConfig.java
+
+- configure 메소드 작성 (로그인 관련 설정)
+
+resources/templates/member/memberLoginForm.html
+
+- 로그인 UI
+
+com.shop.controller.MemberController.java
+
+- 로그인 및 에러 페이지 메소드 작성
+
+![img_1.png](img_1.png)
+
+com.shop.controller.MemberControllerTest.java
+
+- 로그인 성공, 실패 테스트 코드 작성
+
+![img_2.png](img_2.png)
+
+resources/templates/fragments/header.html
+
+- 메뉴 로그인 상태 조건 처리
 
 
 
