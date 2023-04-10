@@ -308,6 +308,21 @@ resource/templates/main.html
 
 [UI 완료 후 DB에 저장값 확인]
 
+### 4.4 로그인/로그아웃 구현하기
+
+4.4.1 UserDetailsService
+
+- UserDetailService 인터페이스는 데이터베이스에서 회원 정보를 가져오는 역할을 담당
+- loadUserByUsername() 메소드가 존재하며, 회원 정보를 조회하여 사용자의 정보와 궈한을 갖는 UserDetails 인터페이스를 반환
+
+4.4.2 UserDetail
+
+스프링 시큐리티에서 회원의 정보를 담기 위해서 사용하는 인터페이스는 UserDetails
+이 인터페이스를 직접 구현하거나 스프링 시큐리티에서 제공하는 User 클래스 사용
+
+4.4.3 로그인/로그아웃 구현하기
+
+기존에 만들었던 MemberService 가 UserDetailService 구현
 
 
 
