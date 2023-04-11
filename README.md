@@ -373,6 +373,52 @@ com.shop.controller.ItemControllerTest.java
 
 - 현재 로그인된 계정의 Role 이 ADMIN / USER 인 경우에 대한 접근 테스트
 
+## 5장 연관 관계 매핑
+
+    학습목표
+    
+    1. 연관 관계 매핑의 종류와 엔티티 연관 관계 매핑을 설정하는 방법을 알아본다.   
+    2. 매핑된 엔티티 조회 시 즉시 로딩과 지연 로딩의 차이점을 이해한다.
+
+### 5.1 연관 관계 매핑 종류
+
+1. 연관 관계 매핑의 종류
+    * 일대일(1:1): @OneToOne
+    * 일대다(1:N): @OneToMany
+    * 다대일(N:1): @ManyToOne
+    * 다대다(N:N): @ManyToMany
+
+2. 엔티티를 매핑할 때는 방향성을 고려
+    * 단방향
+    * 양방향
+
+5.1.1 일대일 단방향 매핑하기
+
+com.shop.entity.Cart.java
+
+- 장바구니 엔티티 설계
+- @OneToOne/@JoinColumn 어노테이션을 이용해 회원 엔티티와 일대일 매핑
+
+com.shop.repository.CartRepository.java
+
+- 장바구니 엔티티 조회 레파지토리 생성
+
+com.shop.entity.CartTest.java
+
+- 테스트 코드 생성
+
+
+    엔티티를 조회할 때 해당 엔티티와 매핑된 엔티티도 한 번에 조회하는 것을 '즉시 로딩'
+    일대일(@OneToOne), 다대일(@ManyToOne) 로 매핑할 경우 즉시 로딩을 기본 Fetch 전략으로 설정
+    Cart.java 클래스에서 member 엔티티와 일대일 매핑 관계를 맺어줄 때 따로 옵션을 주지 않으면 아래 코드와 같이 FetchType.EAGER (즉시 로딩)로 설정하는 것과 동일
+
+
+
+
+
+
+
+
 
 
 
