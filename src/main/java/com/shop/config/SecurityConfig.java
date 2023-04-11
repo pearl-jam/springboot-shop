@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -41,6 +42,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 로그아웃 성공 시 이동할 URL 설정
                 .logoutSuccessUrl("/");
 
+        // 시큐리티 처리에 HttpServletRequest 를 이요한다는 것을 의미
+        http.authorizeRequests()
+                // permitAll()을 통해 모든 사용자가 인증(로그인)없이 해당 경로로 접근할 수 있도록 설정
+                // 메인 페이지, 회원 관련 URL, 뒤에서 만들 상품 상세 페이지, 상품 이미지를 불러오는 경로
+                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
+                // /admin 으로 시작하는 경로는 해당 계정이 ADMIN Role 경우에만 접근 가능하도록 설정
+                .mvcMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated();
+
+        // 인증되지 않은 사용자가 리소스에 접근하였을 때 수행되는 핸들러를 등록
+        http.exceptionHandling()
+                .authenticationEntryPoint(new CustomAuthenticationEntryPoint());
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        // static 디렉토리의 하위 파일은 인증을 무시하도록 설정
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
     }
 
     // 비밀번호를 데이터베이스에 그대로 저장했을 경우, 데이터베이스가 해킹당하면 고객의 회원 정보가 그대로 노출

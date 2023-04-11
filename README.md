@@ -353,6 +353,26 @@ resources/templates/fragments/header.html
 
 - 메뉴 로그인 상태 조건 처리
 
+### 4.5 페이지 권한 설정하기
+
+상품 등록 페이지의 경우 ADMIN 계정만 접근이 가능하고, 일반 USER 계정은 접근을 할 수 없도록 설정을 추가
+
+resource/templates/item/itemForm.html
+
+- ADMIN 계정만 접근할 수 있는 상품 등록 페이지 생성
+
+com.shop.controller.ItemController.java
+
+- 상품 등록 페이지 접근
+
+com.shop.config.CustomAuthenticationEntryPoint.java
+
+- 인증되지 않은 사용자가 리소스를 요청할 경우 "Unauthorized" 에러를 발생하도록 AuthenticationEntryPoint 인터페이스 구현
+
+com.shop.controller.ItemControllerTest.java
+
+- 현재 로그인된 계정의 Role 이 ADMIN / USER 인 경우에 대한 접근 테스트
+
 
 
 
