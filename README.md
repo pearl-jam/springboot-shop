@@ -442,8 +442,29 @@ com.shop.entity.OrderItem.java
     다대다 매핑은 실무에서는 사용하지 않는 매핑 관계
     관계형 데이터베이스는 정규화된 테이블 2개로 다대다를 표현할 수 없어 연결 테이블을 생성해서 다대다 관계를 일대다, 다대일 관계로 처리
 
+### 5.2 영속성 전이
 
+    특정 엔티티와 연관된 엔티티의 상태를 함께 변화시키는 옵션을 알아보자.
 
+5.2.1 영속성 전이란?
+
+    영속성 전이란 엔티티의 상태를 변경할 때 해당 엔티티와 연관된 엔티티의 상태 변화를 전파시키는 옵션
+    부모는 One 에 해당하고 자식은 Many 에 해당
+    Order 엔티티가 삭제되었을 때 해당 엔티티와 연관되어 있는 OrderItem 엔티티가 함께 삭제 되거나, Order 엔티티를 저장할 때 Order 엔티티에 담겨있던 OrderItem 엔티티를 한꺼번에 저장
+
+![img_3.png](img_3.png)
+
+com.shop.repository.OrderRepository.java
+
+- 주문 레파지토리
+
+com.shop.entity.Order.java
+
+- orderItems 에 대해 부모 엔티티의 영속성 상태 변화를 자식 엔티티에 모두 전이하는 CascadeTypeAll 옵션을 설정
+
+com.shop.entity.OrderTest.java
+
+- 테스트 코드 생성
 
 
 
