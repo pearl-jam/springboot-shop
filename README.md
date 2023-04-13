@@ -482,6 +482,31 @@ com.shop.entity.OrderTest.java
 
 - orphanRemovalTest 메소드 작성
 
+5.3 지연 로딩
+
+즉시 로딩 이외에도 지연 로딩이라는 Fetch 전략
+
+com.shop.repository.OrderItemRepository.java
+
+- OrderItem 조회하기 위해서 JpaRepository 를 상속받는 OrderItemRepository 인터페이스 생성
+
+com.shop.entity.OrderTest.java
+
+- lazyLoadingTest 메소드 작성
+
+com.shop.entity.OrderItem.java
+
+- @ManyToOne(fetch = FetchType.LAZY) 방식 설정
+
+
+    연관 관계 매핑 어노테이션에 Fetch 전략을 LAZY 로 직접 설정
+    com.shop.entity.Cart.java
+    com.shop.entity.CartItem.java
+    com.shop.entity.Order.java
+
+
+
+
 
 
 
