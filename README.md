@@ -504,6 +504,38 @@ com.shop.entity.OrderItem.java
     com.shop.entity.CartItem.java
     com.shop.entity.Order.java
 
+5.4 Auditing 을 이용한 엔티티 공통 속성 공통화
+
+    지금까지 설계한 Item, Order, OrderItem 엔티티를 보면 등록시간(regTime), 수정시간(updateTime) 멤버변수가 공통으로 정의
+    Spring Data Jpa 에서는 Auditing 기능을 제공하여 엔티티가 저장 또는 수정될 떄 자동으로 등록일, 수정일, 등록자, 수정자를 입력
+    공통 멤버 변수들을 추상 클래스로 만들고, 해당 추상 클래스를 상속받는 형태로 엔티티를 리팩토링
+
+com.shop.config.AuditorAwareImpl.java
+
+- Auditing 기능을 활용한 데이터 추적
+
+com.shop.config.AuditConfig.java
+
+- Auditing 기능을 사용하기 위해서 Config 파일 생성
+
+com.shop.entity.BaseTimeEntity.java
+com.shop.entity.BaseEntity.java
+
+- Auditing 설정 코드
+
+com.shop.entity.Member.java
+
+- Auditing 기능을 적용하기 위해서 BaseEntity 클래스 상속
+
+com.shop.entity.MemberTest.java
+
+- 회원 엔티티 저장 시 자동으로 등록자, 수정자, 등록시간, 수정시간이 저장되는지 테스트 코드 작성
+
+
+    지연 로딩을 통해서 쿼리문이 필요할 때만 실행되도록 최적화
+
+
+
 
 
 
