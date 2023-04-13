@@ -2,6 +2,7 @@ package com.shop.entity;
 
 import com.shop.constant.ItemSellStatus;
 import com.shop.repository.ItemRepository;
+import com.shop.repository.MemberRepository;
 import com.shop.repository.OrderRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +15,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,6 +29,9 @@ class OrderTest {
     @Autowired
     ItemRepository itemRepository;
 
+    @Autowired
+    MemberRepository memberRepository;
+
     @PersistenceContext
     EntityManager em;
 
@@ -42,6 +45,38 @@ class OrderTest {
         item.setRegTime(LocalDateTime.now());
         item.setUpdateTime(LocalDateTime.now());
         return item;
+    }
+
+    // 주문 데이터를 생성해서 저장하는 메소드
+    public Order createOrder() {
+        Order order = new Order();
+
+        for (int i = 0; i < 3; i++) {
+            Item item = new Item();
+            item.setItemNm("테스트 상품");
+            item.setPrice(10000);
+            item.setItemDetail("상세설명");
+            item.setItemSellStatus(ItemSellStatus.SELL);
+            item.setStockNumber(100);
+            item.setRegTime(LocalDateTime.now());
+            item.setUpdateTime(LocalDateTime.now());
+            itemRepository.save(item);
+
+            OrderItem orderItem = new OrderItem();
+            orderItem.setItem(item);
+            orderItem.setCount(10);
+            orderItem.setOrderPrice(1000);
+            orderItem.setOrder(order);
+            order.getOrderItems().add(orderItem);
+        }
+
+        Member member = new Member();
+        memberRepository.save(member);
+
+        order.setMember(member);
+        orderRepository.save(order);
+
+        return order;
     }
 
     @Test
@@ -71,5 +106,14 @@ class OrderTest {
                 .orElseThrow(EntityNotFoundException::new);
         // itemOrder 엔티티 3개가 실제로 데이터베이스에 저장되었는지 검사
         assertEquals(3, savedOrder.getOrderItems().size());
+    }
+
+    @Test
+    @DisplayName("고아객체 제거 테스트")
+    public void orphanRemovalTest() {
+        Order order = this.createOrder();
+        // order 엔티티에서 관리하고 있는 orderItem 리스트의 0번째 요소를 제거
+        order.getOrderItems().remove(0);
+        em.flush();
     }
 }

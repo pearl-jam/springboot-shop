@@ -466,6 +466,26 @@ com.shop.entity.OrderTest.java
 
 - 테스트 코드 생성
 
+5.2.2 고아 객체 제거 하기
+
+부모 엔티티와 연관 관계가 끊어진 자식 엔티티를 고아 객체라고 정의
+영속성전이 기능과 같이 사용하면 부모 엔티티를 통해서 자식의 생명 주기를 관리
+
+고아 객체 제거 기능은 참조하는 곳이 하나일 때만 사용해야 하며 다른 곳에서도 참조하고 있는 엔티티인데 삭제하면 문제가 생길수 있음
+-> OrderItem 엔티티를 Order 엔티티가 아닌 다른 곳에서 사용하고 있다면 이 기능을 사용하면 안됨
+
+com.shop.entity.Order.java
+
+- @OneToMany 어노테이션에 "orphanRemoval = true" 옵션 추가
+
+com.shop.entity.OrderTest.java
+
+- orphanRemovalTest 메소드 작성
+
+
+
+
+
 
 
 
