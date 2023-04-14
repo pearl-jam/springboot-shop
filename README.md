@@ -534,8 +534,26 @@ com.shop.entity.MemberTest.java
 
     지연 로딩을 통해서 쿼리문이 필요할 때만 실행되도록 최적화
 
+## 6장 상품 등록 및 조회하기
 
+    학습목표
+    
+    1. 상품 등록 및 수정 기능을 구현하면서 Spring DATA JPA 를 이용해 데이터를 처리하는 방법을 학습한다.   
+    2. Querydsl 을 이용해 등록한 상품 데이터를 다양한 조건에 따라서 조회하는 방법을 학습한다.
 
+### 6.1 상품 등록하기
+
+현재까지 상품의 정보를 가지고 있는 상품(Item) 엔티티 클래스를 다루었고, 상품의 이미지를 저장하는 상품 이미지 엔티티 구현
+
+com.shop.entity.ItemImg.java
+
+- 상품 이미지 엔티티
+
+com.shop.dto.ItemImgDto.java
+
+com.shop.dto.ItemFormDto.java
+
+- 상품 데이터 정보를 전달하는 DTO 생성
 
 
 
