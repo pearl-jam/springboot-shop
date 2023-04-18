@@ -15,7 +15,7 @@ import javax.transaction.Transactional;
 @Transactional
 public class ItemImgService {
     // @Value 어노테이션을 통해 application.properties 파일에 등록한 itemImgLocation 값을 불러와서 itemImgLocation 변수에 처리
-    @Value("${itemImgLocation")
+    @Value("${itemImgLocation}")
     private String itemImgLocation;
 
     private final ItemImgRepository itemImgRepository;

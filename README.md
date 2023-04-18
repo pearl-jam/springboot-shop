@@ -551,9 +551,55 @@ com.shop.entity.ItemImg.java
 
 com.shop.dto.ItemImgDto.java
 
+- 상품 저장 후 상품 이미지에 대한 데이터를 전달할 DTO 클래스
+
 com.shop.dto.ItemFormDto.java
 
 - 상품 데이터 정보를 전달하는 DTO 생성
+
+com.shop.ItemController.java
+
+- 상품 등록 페이지로 접근할 수 있도록 수정
+- ItemFormDto 를 model 객체에 담아서 뷰로 전달
+
+resources/templates/item/itemForm.html
+
+- 상품 등록 UI 페이지
+
+![img_4.png](img_4.png)
+
+com.shop.config.WebMvcConfig.java
+
+- 업로드한 파일을 읽어올 경로 설정
+- addResourceHandlers 메소드를 통해 자신의 로컬 컴퓨터에 업로드한 파일을 찾을 위치 설정
+
+com.shop.service.FileService.java
+
+- 파일 업로드 메소드와 삭제 메소드 작성
+
+com.shop.repository.ItemImgRepository.java
+
+- 상품의 이미지 정보를 저장하기 위해서 JpaRepository 상속받는 인터페이스
+- 테스트 코드 작성을 위해 findByItemIdOrderByIdAsc 메소드 추가
+
+com.shop.service.ItemImgService.java
+
+- 상품 이미지를 업로드하고, 상품 이미지 정보를 저장
+
+com.shop.service.ItemService.java
+
+- 상품 등록
+
+com.shop.controller.ItemController.java
+
+- 상품을 등록하는 url 처리
+
+com.shop.service.ItemServiceTest.java
+
+- 테스트 코드 작성
+
+
+
 
 
 
