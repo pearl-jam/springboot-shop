@@ -598,7 +598,13 @@ com.shop.service.ItemServiceTest.java
 
 - 테스트 코드 작성
 
+### 6.2 상품 수정하기
 
+상품 등록 기능을 구현하였으니 등록한 상품 정보를 볼 수 있는 상품 상세 페이지 진입 및 상품 데이터를 수정할 수 있도록 기능 구현
+
+com.shop.service.ItemService.java
+
+등록된 상품을 불러오는 메소드 추가
 
 
 

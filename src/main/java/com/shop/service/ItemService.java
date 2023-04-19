@@ -1,15 +1,19 @@
 package com.shop.service;
 
 import com.shop.dto.ItemFormDto;
+import com.shop.dto.ItemImgDto;
 import com.shop.entity.Item;
 import com.shop.entity.ItemImg;
 import com.shop.repository.ItemImgRepository;
 import com.shop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.transaction.Transactional;
+import javax.persistence.EntityNotFoundException;
+// import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -41,5 +45,28 @@ public class ItemService {
             itemImgService.saveItemImg(itemImg, itemImgFileList.get(i));
         }
         return item.getId();
+    }
+
+    // 상품 데이터를 읽어오는 트랜잭션을 읽기 전용 설정하며 이 경우 JPA 가 더티체킁(변경감지)을 수쟁하지 않아서 성능을 향상 시킬수 있음
+    // Blog - https://byeongyeon.tistory.com/35
+    //  Transactional 어노테이션 기능을 제공하는 라이브러리는 2가지가 있으며, import 하는 과정에서 자동으로 2가지 중 아무거나 오는 경우가 있으므로 조심
+    //      org.springframework.transaction.annotation.Transactional (옵션 허용)
+    //      javax.transaction.Transactional (옵션 허용하지 않음)
+    @Transactional(readOnly = true)
+    public ItemFormDto getItemDtl(Long itemId) {
+        // 해당 상품의 이미지를 조회. 등록순으로 가지고 오기 위해서 상품 이미지 아이디 오름차순으로 처리
+        List<ItemImg> itemImgList = itemImgRepository.findByItemIdOrderByIdAsc(itemId);
+        List<ItemImgDto> itemImgDtoList = new ArrayList<>();
+        // 조회한 ItemImg 엔티티를 ItemImgDto 객체로 만들어서 리스트에 추ㅏ
+        for (ItemImg itemImg : itemImgList) {
+            ItemImgDto itemImgDto = ItemImgDto.of(itemImg);
+            itemImgDtoList.add(itemImgDto);
+        }
+
+        // 상품의 아이디를 통해 상품 엔티티를 조회. 존재하지 않을 때는 EntityNotFoundException 발생
+        Item item = itemRepository.findById(itemId).orElseThrow(EntityNotFoundException::new);
+        ItemFormDto itemFormDto = ItemFormDto.of(item);
+        itemFormDto.setItemImgDtoList(itemImgDtoList);
+        return itemFormDto;
     }
 }
