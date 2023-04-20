@@ -606,6 +606,23 @@ com.shop.service.ItemService.java
 
 등록된 상품을 불러오는 메소드 추가
 
+com.shop.controller.ItemController.java
+
+상품 수정 페이지 진입 코드 추가
+
+com.shop.service.ItemImgService.java
+
+상품 이미지 수정 (변경 감지 기능)
+
+com.shop.entity.Item.java
+
+상품을 업데이트하는 로직 구현
+
+com.shop.service.ItemService.java
+
+상품 업데이트
+
+
 
 
 
