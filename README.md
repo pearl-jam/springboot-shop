@@ -604,23 +604,70 @@ com.shop.service.ItemServiceTest.java
 
 com.shop.service.ItemService.java
 
-등록된 상품을 불러오는 메소드 추가
+- 등록된 상품을 불러오는 메소드 추가
 
 com.shop.controller.ItemController.java
 
-상품 수정 페이지 진입 코드 추가
+- 상품 수정 페이지 진입 코드 추가
 
 com.shop.service.ItemImgService.java
 
-상품 이미지 수정 (변경 감지 기능)
+- 상품 이미지 수정 (변경 감지 기능)
 
 com.shop.entity.Item.java
 
-상품을 업데이트하는 로직 구현
+- 상품을 업데이트하는 로직 구현
 
 com.shop.service.ItemService.java
 
-상품 업데이트
+- 상품 업데이트
+
+### 6.3 상품 관리하기
+
+등록된 상품 리스트를 조회할 수 있는 화면 개발
+
+조회 조건
+
+    상품 등록일
+    상품 판매 상태
+    상품명 또는 상품 등록자 아이디
+
+Querydsl 을 이용해 조건에 맞는 쿼리를 동적으로 생성
+Querydsl 을 사용하기 위해서는 QDomain 생성
+
+com.shop.dto.ItemSearchDto.java
+
+- 상품 데이터 조회 시 상품 조회 조건 정의
+
+com.shop.repository.ItemRepositoryCustom.java
+
+- Querydsl 을 Spring Data Jpa 함꼐 사용하기 위해서 사용자 정의 리포지토리 정의
+
+com.shop.repository.ItemRepositoryCustomImpl.java
+
+- ItemRepositoryCustom 인터페이스를 구현하는 클래스 작성
+
+com.shop.repository.ItemRepository.java
+
+- ItemRepositoryCustom 인터페이스 상속
+
+com.shop.service.ItemService.java
+
+- 상품 조회 조건과 페이지 정보를 파라미터로 받아서 상품 데이터를 조회하는 getAdminItemPage() 메소드 추가
+
+com.shop.controller.ItemController.java
+
+- 상품 관리 화면 이동 및 조회한 상품 데이터를 화면에 전달하는 로직 구현
+
+resource/templates/item/itemMng.html
+
+- 상품 조회 UI 페이지
+
+
+
+
+
+
 
 
 

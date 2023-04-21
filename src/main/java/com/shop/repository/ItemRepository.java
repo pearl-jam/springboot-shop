@@ -1,6 +1,9 @@
 package com.shop.repository;
 
+import com.shop.dto.ItemSearchDto;
 import com.shop.entity.Item;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
@@ -12,7 +15,7 @@ import java.util.List;
 // JpaRepository 는 2개의 제네릭 타입을 사용하는데 첫 번째에는 엔티티 타입 클래스를 넣어주고, 두 번째는 기본키 타입을 넣어줌.
 // 2.7 Spring DATA JPA Querydsl
 // - QueryDslPredicateExecutor 인터페이스 상속 추가
-public interface ItemRepository extends JpaRepository<Item, Long>, QuerydslPredicateExecutor<Item> {
+public interface ItemRepository extends JpaRepository<Item, Long>, QuerydslPredicateExecutor<Item>, ItemRepositoryCustom {
     // 쿼리 메소드를 이용할 때 가장 많이 사용하는 문법으로 find 사용
     // 엔티티의 이름은 생략이 가능하며, By 뒤에는 검색할 때 사용할 변수의 이름 작성
     // find + (엔티티이름) + By + 변수 이름
@@ -36,4 +39,6 @@ public interface ItemRepository extends JpaRepository<Item, Long>, QuerydslPredi
     // 기존의 데이터베이스에서 사용하던 쿼리를 그대로 사용해야 할 때는 @Query 의 nativeQuery 속성을 사용하면 기존 쿼리 그대로 활용
     @Query(value = "select * from item i where i.item_detail like %:itemDetail% order by i.price desc", nativeQuery = true)
     List<Item> findByItemDetailByNative(@Param("itemDetail") String itemDetail);
+
+    Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable);
 }

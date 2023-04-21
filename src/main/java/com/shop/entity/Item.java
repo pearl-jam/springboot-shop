@@ -47,6 +47,8 @@ public class Item {
 
     private LocalDateTime updateTime; // 수정시간
 
+    private String createdBy;
+
     public void updateItem(ItemFormDto itemFormDto) {
         this.itemNm = itemFormDto.getItemNm();
         this.price = itemFormDto.getPrice();
