@@ -689,9 +689,23 @@ com.shop.controller.ItemController.java
 
 - 메인 페이지에 상ㅍ무 데이터를 보여주기 위해서 기존에 작성했던 MainController 클래스 수정
 
-resource.templates.main.html
+resources/templates/main.html
 
 - 메인 페이지에 상품 데이터 처리
+
+### 6.5 상품 상세 페이지
+
+메인 페이지에서 상품 이미지나 상품 정보를 클릭 시 상품의 상세 정보를 보여주는 페이지 구현
+
+com.shop.controller.ItemController.java
+
+- 상품 상세 페이지로 이동할 수 있또록 ItemController 클래스에 코드를 추가
+
+resources/templates/item/itemDtl.html
+
+- 상품 상세 페이지
+
+
 
 
 
