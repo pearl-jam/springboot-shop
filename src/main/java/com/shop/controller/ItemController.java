@@ -2,10 +2,10 @@ package com.shop.controller;
 
 import com.shop.dto.ItemFormDto;
 import com.shop.dto.ItemSearchDto;
+import com.shop.dto.MainItemDto;
 import com.shop.entity.Item;
 import com.shop.service.ItemService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

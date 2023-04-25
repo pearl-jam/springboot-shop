@@ -13,8 +13,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @Transactional
 @TestPropertySource(locations = "classpath:application-test.properties")
@@ -40,7 +38,7 @@ public class MemberTest {
 
         System.out.println("register time : " + member.getRegTime());
         System.out.println("update time : " + member.getUpdateTime());
-        System.out.println("create member : " + member.getCreateBy());
+        System.out.println("create member : " + member.getCreatedBy());
         System.out.println("modify member : " + member.getModifiedBy());
     }
 }

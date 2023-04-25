@@ -663,6 +663,39 @@ resource/templates/item/itemMng.html
 
 - 상품 조회 UI 페이지
 
+### 6.4 메인 화면
+
+등록한 상품을 메인 페이지에서 고객이 볼 수 있도록 구현
+- 상품 관리 메뉴 구현과 비슷하며, 동일하게 Querydsl 을 사용하여 페이지 처리 및 네비게이션바에 있는 Search 버튼을 이용하여 상품명으로 검색이 가능하도록 구현
+- Querydsl 을 이용하여 상품 조회 시 결과 값을 받을 때 @QueryProjection 을 이용하여 상품 조회 시 DTO 객체로 결과 값을 받는 방법 확인
+
+com.shop.dto.MainItemDto.java
+
+- 메인 페이지에서 상품을 보여줄 때 사용할 MainItemDto 클래스 생성
+
+com.shop.repository.ItemRepositoryCustom.java
+
+- 메인 페이지에 보여줄 상품 리스트를 가져오는 메소드 생성
+
+com.shop.repository.ItemRepositoryCustomImpl.java
+
+- 메인 페이지에 보여줄 상품 리스트를 가져오는 메소드 구현 
+
+com.shop.service.ItemService.java
+
+- 메인 페이지 보여줄 상품 데이터를 조회하는 메소드 추가
+
+com.shop.controller.ItemController.java
+
+- 메인 페이지에 상ㅍ무 데이터를 보여주기 위해서 기존에 작성했던 MainController 클래스 수정
+
+resource.templates.main.html
+
+- 메인 페이지에 상품 데이터 처리
+
+
+
+
 
 
 
