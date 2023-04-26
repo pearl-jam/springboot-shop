@@ -705,6 +705,34 @@ resources/templates/item/itemDtl.html
 
 - 상품 상세 페이지
 
+## 7장 주문
+
+    학습목표
+    
+    1. 주문, 주문이력 조회, 주문 취소 기능 구현을 통해서 주문 프로세스 학습   
+    2. Spring Data JPA 를 이용하여 주문 데이터 조회 시 조회를 최적화하는 방법을 학습
+
+### 7.1 주문 기능 구현하기
+
+    고객이 상품을 주문할 수 있도록 기능 구현
+
+com.shop.exception.OutOfStockException.java
+
+- 상품의 주문 수량보다 재고의 수가 적을 때 발생시킬 exception 정의
+
+com.shop.entity.item.java
+
+- 상품을 주문할 경우 상품의 재고를 감소시키는 로직 작성
+
+com.shop.entity.OrderItem.java
+
+- 주문할 상품과 주문 수량을 통해 OrderItem 객체를 만드는 메소드를 작성
+
+com.shop.entity.Order.java
+
+- 생성한 주문 상품 객체를 이용하여 주문 객체를 만드는 메소드 작성
+
+
 
 
 
