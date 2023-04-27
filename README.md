@@ -732,10 +732,25 @@ com.shop.entity.Order.java
 
 - 생성한 주문 상품 객체를 이용하여 주문 객체를 만드는 메소드 작성
 
+com.shop.dto.OrderDto.java
 
+- 상품 상세 페이지에서 주문할 상품의 아이디와 주문 수량을 전달받을 클래스
 
+com.shop.service.OrderService.java
 
+- 주문 로직 작성
 
+com.shop.controller.OrderController.java
+
+- 주문 관련 요청들을 처리
+
+com.shop.service.OrderServiceTest.java
+
+- 정상적으로 동작하는지 테스트 코드 작성
+
+resources/templates/item/itemDtl.html
+
+- 상품 상세 페이지에서 구현한 주문 로직을 호출하는 코드 작성
 
 
 
