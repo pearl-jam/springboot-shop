@@ -752,6 +752,42 @@ resources/templates/item/itemDtl.html
 
 - 상품 상세 페이지에서 구현한 주문 로직을 호출하는 코드 작성
 
+### 7.2 주문 이력 조회하기
+
+    주문 이력을 조회하는 페이지에서는 주문부터 현재 상품의 배송 상태까지 보여주지만 예제는 주문 취소하는 기능만 구현
+
+com.shop.dto.OrderItemDto.java
+
+- 조회한 주문 데이터를 화면에 보낼 떄 사용할 클래스 생성
+
+com.shop.dto.OrderHistDto.java
+
+- 주문 정보를 담을 클래스 생성
+
+com.shop.repository.OrderRepository.java
+
+- 주문 이력 쿼리 작성
+
+com.shop.repository.ItemImgRepository.java
+
+- 상품의 대표 이미지를 찾는 쿼리 메소드 추가, 구매 이력 페이지에서 주문 상품의 대표 이미지를 보여주기 위함
+
+com.shop.service.OrderService.java
+
+- 주문 목록을 조회하는 로직 구현
+
+com.shop.controller.OrderController.java
+
+- 구매이력을 조회할 수 있도록 구현한 로직을 호출하는 메소드 구현
+
+resources/templates/order/orderHist.html
+
+- 구매 이력 페이지
+
+![img_5.png](img_5.png)
+
+
+
 
 
 
