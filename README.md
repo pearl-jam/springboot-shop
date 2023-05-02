@@ -786,6 +786,25 @@ resources/templates/order/orderHist.html
 
 ![img_5.png](img_5.png)
 
+### 7.3 주문 취소하기
+
+    고객이 주문했던 상품을 취소할 수 있도록 구현
+    주문을 취소할 경우 해당 주문의 상태를 취소 상태로 만들어주고, 주문할 때 상품의 재고를 감소시켰던 만큼 다시 더해줌
+
+com.shop.entity.Item.java
+
+- 상품의 재고를 더해주기 위해서 addStock 메소드 생성
+
+com.shop.entity.OrderItem.java
+
+- 주문을 취소할 경우 주문 수량만큼 상품의 재고를 증가시키는 메소드 구현
+
+com.shop.entity.Order.java
+
+- Item 클래스에서 주문 취소 시 주문 수량을 상품의 재고에 더해주는 로직과 주문 상태를 취소 상태로 바꿔주는 메소드 구현
+
+
+
 
 
 
