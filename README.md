@@ -803,55 +803,18 @@ com.shop.entity.Order.java
 
 - Item 클래스에서 주문 취소 시 주문 수량을 상품의 재고에 더해주는 로직과 주문 상태를 취소 상태로 바꿔주는 메소드 구현
 
+com.shop.service.OrderService.java
 
+- 주문을 취소하는 로직 구현
 
+com.shop.controller.OrderController.java
 
+- 주문번호(orderId)를 받아서 주문 취소 로직을 호출하는 메소드 구현
 
+com.shop.service.OrderServiceTest.java
 
+- 주문 취소 로직이 제대로 동작하는지 테스트 코드 작성
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    
-
-    
 
 
 
