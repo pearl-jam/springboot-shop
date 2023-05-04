@@ -815,6 +815,60 @@ com.shop.service.OrderServiceTest.java
 
 - 주문 취소 로직이 제대로 동작하는지 테스트 코드 작성
 
+## 8장 장바구니
+
+    학습목표
+    
+    1. 장바구니 기능으로 상품을 장바구니에 담거나 주문, 삭제하는 프로세스 학습   
+
+### 8.1 장바구니 담기
+
+    상품 상세 페이지에서 장바구니에 담을 수량을 선택하고 장바구니 담기 버튼을 클릭할 때 상품이 장바구니에 담기는 기능 먼저 구현
+
+com.shop.dto.CartItemDto.java
+
+- 상품 상세 페이지에서 장바구니에 담을 상품의 아이디와 수량을 전달 받을 클래스 생성
+- 장바구니에 담을 상품의 최소 수량은 1개 이상으로 제한
+
+com.shop.entity.Cart.java
+
+- 회원 한 명당 1개의 장바구니를 갖으므로 처음 장바구니에 상품을 담을 때는 해당 회원의 장바구니를 생성
+- Cart 클래스에 회원 엔티티를 파라미터로 받아서 장바구니 엔티티를 생성하는 로직 추가
+
+com.shop.entity.CartItem.java
+
+- 장바구니에 담을 상품 엔티티를 생성하는 메소드와 장바구니에 담을 수량을 증가시켜 주는 메소드를 추가
+
+com.shop.repository.CartRepository.java
+
+- 현재 로그인한 회원의 Cart 엔티티를 찾기 위해서 쿼리 메소드 추가
+
+com.shop.repository.CartItemRepository.java
+
+- 장바구니에 들어갈 상품을 저장하거나 조회하기 위해서 CartItemRepository 인터페이스 생성
+
+com.shop.service.CartService.java
+
+- 장바구니에 상품을 담는 로직을 작성하기 위해서 CartService 클래스 생성
+
+com.shop.controller.CartController.java
+
+- 장바구니와 관련된 요청들을 처리하기위해서 클래스 생성
+
+com.shop.service.CartServiceTest.java
+
+- 로직 테스트 코드 작성
+
+resources/templates/item/itemDtl.html
+
+- 장바구니 담기 호출 구현
+
+
+
+
+
+
+
 
 
 

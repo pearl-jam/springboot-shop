@@ -23,4 +23,10 @@ public class Cart {
     // @JoinColumn 의 name 을 명시하지 않으면 JPA 가 알아서 ID 를 찾지만 컬럼명이 원하는 대로 생성되지 않을 수 있기 때문에 직접 지정
     @JoinColumn(name = "member_id")
     private Member member;
+
+    public static Cart createCart(Member member) {
+        Cart cart = new Cart();
+        cart.setMember(member);
+        return cart;
+    }
 }
