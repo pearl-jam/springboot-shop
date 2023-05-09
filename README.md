@@ -863,6 +863,35 @@ resources/templates/item/itemDtl.html
 
 - 장바구니 담기 호출 구현
 
+### 8.2 장바구니 조회하기
+
+    장바구니에 들어있는 상품들을 조회하는 기능 구현
+
+com.shop.dto.CartDetailDto.java
+
+- 장바구니 조회 페이지에 전달할 DTO 클래스 생성
+- JPQL 로 쿼리 작성 시 생성자를 이용해서 DTO 로 바로 반환받는 방법
+
+com.shop.repository.CartItemRepository.java
+
+- 장바구니 페이지에 전달할 CartDetailDto 리스트를 쿼리 하나로 조회하는 JPQL 문 작성
+
+com.shop.service.CartService.java
+
+- 현재 로그인한 회원의 정보를 이용하여 장바구니에 들어있는 상품 조회하는 로직 작성
+
+com.shop.controller.CartController.java
+
+- 장바구니 페이지로 이동할 수 있도록 CartController 클래스에 메소드 추가
+- 장바구니 상품의 수량을 업데이트하는 요청을 처리할 수 있도록 로직 추가
+
+resources/templates/cart/cartList.html
+
+- 조회한 장바구니 상품 정보를 이용하여 장바구니 목록을 보여주는 페이지 구현
+
+com.shop.entity.CartItem.java
+
+- 현재 장바구니에 담겨있는 수량을 변경하는 메소드 추가
 
 
 
