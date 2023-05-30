@@ -46,10 +46,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // permitAll()을 통해 모든 사용자가 인증(로그인)없이 해당 경로로 접근할 수 있도록 설정
                 // 메인 페이지, 회원 관련 URL, 뒤에서 만들 상품 상세 페이지, 상품 이미지를 불러오는 경로
+                .antMatchers("/h2-console/**").permitAll()
                 .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
                 // /admin 으로 시작하는 경로는 해당 계정이 ADMIN Role 경우에만 접근 가능하도록 설정
                 .mvcMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated();
+
+                .anyRequest().authenticated()
+                .and().csrf().disable()
+                .headers().frameOptions().disable();
 
         // 인증되지 않은 사용자가 리소스에 접근하였을 때 수행되는 핸들러를 등록
         http.exceptionHandling()
